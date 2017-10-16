@@ -109,7 +109,7 @@ class AvtVimbaCamera {
 
   AvtVimbaApi api_;
   // IFrame Observer
-  FrameObserver* vimba_frame_observer_ptr_;
+  SP_DECL(FrameObserver) frame_obs_ptr_;
   // The currently streaming camera
   CameraPtr vimba_camera_ptr_;
   // Current frame
@@ -156,7 +156,7 @@ class AvtVimbaCamera {
   std::string interfaceToString(VmbInterfaceType interfaceType);
   std::string accessModeToString(VmbAccessModeType modeType);
   int getTriggerModeInt(std::string mode_str);
-  void printAllCameraFeatures(CameraPtr camera);
+  void printAllCameraFeatures(const CameraPtr& camera);
 
   void updateAcquisitionConfig(Config& config);
   void updateExposureConfig(Config& config);
